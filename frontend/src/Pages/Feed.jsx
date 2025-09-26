@@ -4,10 +4,12 @@ import Loading from "../components/Loading";
 import StoriesBar from "../components/StoriesBar";
 import PostCard from "../components/PostCard";
 import RecentMessages from "../components/RecentMessages";
+import { useAuth } from "@clerk/clerk-react";
 
 const Feed = () => {
   const [feeds, setFeeds] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { getToken } = useAuth();
 
   const fetchFeeds = async () => {
     setFeeds(dummyPostsData);
