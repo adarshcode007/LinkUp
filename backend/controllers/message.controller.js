@@ -90,7 +90,7 @@ export const getChatMessages = async (req, res) => {
 
     const messages = await Message.find({
       $or: [
-        { from_user_id: userId, to_user_id },
+        { from_user_id: userId, to_user_id: to_user_id },
         { from_user_id: to_user_id, to_user_id: userId },
       ],
     }).sort({ createdAt: -1 });

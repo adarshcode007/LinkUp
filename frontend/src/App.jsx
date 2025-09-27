@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Pages/login";
 import Feed from "./Pages/Feed";
@@ -14,10 +14,12 @@ import { Toaster } from "react-hot-toast";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchUser } from "./features/user/userSlice";
+import { fetchConnections } from "./features/connections/connectionSlice";
 
 const App = () => {
   const { user } = useUser();
   const { getToken } = useAuth();
+  const pathnameRef = useRef(pathname);
 
   const dispatch = useDispatch();
 
@@ -26,10 +28,15 @@ const App = () => {
       if (user) {
         const token = await getToken();
         dispatch(fetchUser(token));
+        dispatch(fetchConnections(token));
       }
     };
     fetchData();
   }, [user, getToken, dispatch]);
+
+  useEffect(() => {
+    pathnameRef.current = pathname;
+  }, [pathname]);
 
   return (
     <>
