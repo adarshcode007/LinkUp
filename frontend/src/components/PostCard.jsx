@@ -82,7 +82,8 @@ const PostCard = ({ post }) => {
           <img
             src={img}
             key={index}
-            className={`w-full h-48 object-cover rounded-lg ${
+            onClick={() => window.open(img, "_blank", "noopener,noreferrer")}
+            className={`w-full h-48 object-cover rounded-lg cursor-pointer ${
               post.image_urls.length === 1 && "col-span-2 h-auto"
             }`}
           />
