@@ -17,16 +17,22 @@ export const fetchUser = createAsyncThunk("user/fetchUser", async (token) => {
 export const updateUser = createAsyncThunk(
   "user/update",
   async ({ userData, token }) => {
-    const { data } = await api.post("/api/user/update", userData, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
+    try {
+      const toastId = toast.loading("Saving...");
+      const { data } = await api.post("/api/user/update", userData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
-    if (data.success) {
-      toast.success(data.message);
-      return data.user;
-    } else {
-      toast.error(data.message);
-      return null;
+      if (data.success) {
+        toast.success(data.message, { id: toastId });
+        return data.user;
+      } else {
+        toast.error(data.message, { id: toastId });
+        return null;
+      }
+    } catch (error) {
+      console.log(error.message);
+      toast.error(error.message, { id: toastId });
     }
   }
 );
