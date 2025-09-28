@@ -11,10 +11,10 @@ export const sseController = (req, res) => {
   console.log("New client connected: ", userId);
 
   // set SSE headers
-  res.setHeaders("Content-Type", "text/event-stream");
-  res.setHeaders("Cache-Control", "no-cache");
-  res.setHeaders("Connection", "keep-alive");
-  res.setHeaders("Access-Control-Allow-Origin", "*");
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+  res.setHeader("Access-Control-Allow-Origin", "*");
 
   // Add the client's response object to the connections object
   connections[userId] = res;

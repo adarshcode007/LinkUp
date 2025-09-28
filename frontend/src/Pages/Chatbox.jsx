@@ -115,10 +115,6 @@ const Chatbox = () => {
                         className="w-full max-w-sm rounded-l mb-1"
                       />
                     )}
-                    <img
-                      src={message.media_url}
-                      className="w-full max-w-sm rounded-lg mb-1"
-                    />
                     <p>{message.text}</p>
                   </div>
                 </div>
