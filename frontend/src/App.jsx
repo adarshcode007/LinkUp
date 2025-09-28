@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Login from "./Pages/login";
+import Login from "./Pages/Login";
 import Feed from "./Pages/Feed";
 import Messages from "./Pages/Messages";
 import Chatbox from "./Pages/Chatbox";
