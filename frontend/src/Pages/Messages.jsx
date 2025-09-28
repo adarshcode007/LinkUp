@@ -25,8 +25,9 @@ const Messages = () => {
               className="max-w-xl flex flex-warp gap-5 p-6 bg-white shadow rounded-md"
             >
               <img
+                onClick={() => navigate(`/profile/${user._id}`)}
                 src={user.profile_picture}
-                className="rounded-full size-12 mx-auto"
+                className="rounded-full size-12 mx-auto cursor-pointer"
               />
               <div className="flex-1">
                 <p className="font-medium text-slate-700">{user.full_name}</p>
