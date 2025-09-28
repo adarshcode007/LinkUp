@@ -21,7 +21,7 @@ const Sidebar = ({ SidebarOpen, setSidebarOpen }) => {
         <img
           src={assets.logo}
           onClick={() => navigate("/")}
-          className="w-26 ml-7 my-2 curosr-pointer"
+          className="h-15 w-45 ml-7 my-2 cursor-pointer"
         />
         <hr className="border-gray-300 mb-8" />
         <MenuItems setSidebarOpen={setSidebarOpen} />

@@ -32,7 +32,11 @@ const Profile = () => {
       );
       if (data.success) {
         setUser(data.profile);
-        setPosts(data.posts);
+        setPosts(
+          data.posts.sort(
+            (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+          )
+        );
       } else {
         toast.error(data.message);
       }
